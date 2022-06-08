@@ -50,3 +50,31 @@
     }
     return true;    
 };
+
+//Faster Solution, a lot more memory efficient
+
+var isPalindrome = function(s) {
+    s=s.toLowerCase()
+    let p1 = 0;
+    let p2 = s.length-1;
+    
+    const isValidCharacter = (char) => {
+        const validChar = 'abcdefghijklmnopqrstuvwxyz0123456789'
+        return validChar.includes(char)
+    }
+    
+    while(p1<p2) {
+        while(!isValidCharacter(s[p1]) && p1<p2) {
+            p1++
+        }
+        while(!isValidCharacter(s[p2]) && p1<p2) {
+            p2--
+        }
+        if(s[p1] !== s[p2]) {
+            return false
+        }
+        p1++
+        p2--
+    }
+    return true
+};
