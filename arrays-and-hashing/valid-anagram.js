@@ -57,3 +57,33 @@
     return true;  
 };
 
+// one month later
+
+var isAnagram = function(s, t) {
+    if(s.length !== t.length) {
+        return false
+    }
+    let sMap={}
+    let tMap={}
+    for(let i=0;i<s.length;i++) {
+        if(sMap[s[i]]) {
+            sMap[s[i]]++
+        } else {
+            sMap[s[i]] = 1;
+        }
+    }
+    for(let i=0;i<t.length;i++) {
+        if(tMap[t[i]]) {
+            tMap[t[i]]++
+        } else {
+            tMap[t[i]] = 1
+        }
+    }
+    for(key in sMap) {
+        if(sMap[key] !== tMap[key]) {
+            return false
+        }
+    }
+    return true
+};
+
