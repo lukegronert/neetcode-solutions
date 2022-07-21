@@ -34,3 +34,21 @@
     }
     return max;
 };
+
+//one month later
+var longestConsecutive = function(nums) {
+    nums.sort((a,b) => a-b)
+    let result = 0;
+    let curr = 1;
+    for(let i=0;i<nums.length;i++) {
+        if(nums[i+1] === nums[i]) {
+            continue
+        } else if (nums[i+1] === nums[i]+1) {
+            curr += 1;
+        } else if (nums[i+1] !== nums[i]+1) {
+            result = Math.max(result, curr);
+            curr = 1;
+        }
+    }
+    return result
+};
