@@ -86,3 +86,22 @@ var groupAnagrams = function(strs) {
     }
     return result;
 };
+
+// one month later
+
+var groupAnagrams = function(strs) {
+    let map = {};
+    let results = [];
+    for(let i=0;i<strs.length;i++) {
+        let word = strs[i].split('').sort().join('');  
+        if(map[word]) {
+            map[word].push(strs[i])
+        } else {
+            map[word] = [strs[i]]
+        }
+    }
+    for(let key in map) {
+        results.push(map[key])
+    }
+    return results;
+};
