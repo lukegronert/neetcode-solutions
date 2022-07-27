@@ -36,3 +36,21 @@
     }
     return [maxArea];
 };
+
+// one month later
+var maxArea = function(height) {
+    let maxVol = 0;
+    let left = 0;
+    let right = height.length-1;
+    while(left < right) {
+        maxVol = Math.max(maxVol, (Math.min(height[left], height[right])*(right-left)));
+        if(height[left] > height[right]) {
+            right--
+        } else if (height[left] < height[right]) {
+            left++
+        } else {
+            left++
+        }
+    }
+    return maxVol
+};
