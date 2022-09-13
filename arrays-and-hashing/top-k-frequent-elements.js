@@ -39,3 +39,25 @@
     }
     return results;
 };
+
+//two months later
+var topKFrequent = function(nums, k) {
+    let map = {};
+    let results = []
+    for(let i = 0; i<nums.length; i++) {
+        if(map[nums[i]]) {
+            map[nums[i]] += 1;
+        } else {
+            map[nums[i]] =  1;
+        }
+    }
+    let values = Object.values(map);
+    let keys = Object.keys(map);
+    for (let i=0; i<k; i++) {
+        let max = Math.max(...values);
+        let index = values.indexOf(max)
+        results.push(keys[index]);
+        values[index] = 0;
+    }
+    return results;
+};
