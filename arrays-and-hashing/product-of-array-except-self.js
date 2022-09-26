@@ -38,3 +38,20 @@
     }
     return results;
 };
+
+//two months later
+//NOT OPTIMAL
+var productExceptSelf = function(nums) {
+    let results = [];
+    for(let i=0; i<nums.length; i++) {
+        let answer = 1;
+        for (let j=0;j<nums.length; j++) {
+            if(i === j) { 
+                continue;
+            }
+            answer *= nums[j];
+        }
+        results.push(answer)
+    }
+    return results;
+};

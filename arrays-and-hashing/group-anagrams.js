@@ -105,3 +105,22 @@ var groupAnagrams = function(strs) {
     }
     return results;
 };
+
+//two months later
+var groupAnagrams = function(strs) {
+    let map = {};
+    let results = [];
+    for (let i = 0; i<strs.length; i++) {
+        let word = strs[i].split("").sort().join("");
+        console.log(word)
+        if(map[word]) {
+            map[word].push(strs[i])
+        } else {
+            map[word] = [strs[i]]
+        }
+    }
+    for(key in map) {
+        results.push(map[key])
+    }
+    return results;
+};

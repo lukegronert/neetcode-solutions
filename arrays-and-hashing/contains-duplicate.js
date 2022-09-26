@@ -55,3 +55,15 @@ var containsDuplicate = function(nums) {
     }
     return false;
 };
+
+//two months later
+var containsDuplicate = function(nums) {
+    const set = new Set();
+    for(let i = 0; i<nums.length; i++) {
+        set.add(nums[i])
+    }
+    if(set.size === nums.length) {
+        return false;
+    }
+    return true;
+};

@@ -87,3 +87,48 @@ var isAnagram = function(s, t) {
     return true
 };
 
+
+// two months later
+var isAnagram = function(s, t) {
+    s = s.split('');
+    s = s.sort();
+    s = s.join('');
+    t = t.split('');
+    t = t.sort();
+    t = t.join('');
+    return s===t;
+};
+
+//less memory solution
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+ var isAnagram = function(s, t) {
+    if(s.length !== t.length) {
+        return false;
+    }
+    let sMap = {};
+    let tMap = {};
+    for(let i = 0; i<s.length; i++) {
+        if(sMap[s[i]]) {
+            sMap[s[i]] += 1;
+        } else {
+            sMap[s[i]] = 1;
+        }
+    }
+    for(let i = 0; i<t.length; i++) {
+        if(tMap[t[i]]) {
+            tMap[t[i]] += 1;
+        } else {
+            tMap[t[i]] = 1;
+        }
+    }
+    for(let key in sMap) {
+        if(sMap[key] !== tMap[key]) {
+            return false;
+        }
+    }
+    return true;
+};
