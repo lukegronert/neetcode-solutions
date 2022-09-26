@@ -56,3 +56,20 @@
     }
     return profit
 };
+
+//two months later
+var maxProfit = function(prices) {
+    let profit = 0;
+    let l = 0;
+    let r = 1;
+    while(l<r && r<prices.length) {
+        if(l<r && prices[r] < prices[l]) {
+            l = r;
+        }
+        if(prices[r] - prices[l] > 0 && prices[r]-prices[l] > profit) {
+            profit = prices[r]-prices[l];
+        }
+        r++
+    }
+    return profit;
+};
