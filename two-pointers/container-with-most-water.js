@@ -54,3 +54,20 @@ var maxArea = function(height) {
     }
     return maxVol
 };
+
+//two months later
+var maxArea = function(height) {
+    let max = 0;
+    let l = 0;
+    let r = height.length-1;
+    while(l<r) {
+        if(height[l] > height[r]) {
+            max = Math.max(max, height[r]*(r-l));
+            r--
+        } else {
+            max = Math.max(max, height[l] * (r-l));
+            l++
+        }
+    }
+    return max;
+};

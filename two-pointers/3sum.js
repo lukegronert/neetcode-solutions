@@ -92,3 +92,41 @@ var threeSum = function(nums) {
     }
     return result;
 };
+
+//two months later
+var threeSum = function(nums) {
+    nums.sort((a,b) => a-b);
+    let p1 = 0;
+    let p2 = nums.length-1;
+    let result = [];
+    for(let i=0; i<nums.length; i++) {
+        if(nums[i] > 0) {
+            return result
+        }
+        if(nums[i] === nums[i-1]) {
+            continue
+        }
+        p1 = i+1;
+        p2 = nums.length-1;
+        while(p1<p2) {
+            if(nums[i] + nums[p1] + nums[p2] === 0) {
+                result.push([nums[i],nums[p1],nums[p2]])
+                p1++
+                p2--
+                while(nums[p1] === nums[p1-1]) {
+                    p1++
+                }
+                while(nums[p2] === nums[p2+1]) {
+                    p2--
+                }
+            }
+            while(nums[i] + nums[p1] + nums[p2] > 0 && p1<p2) {
+                p2--
+            } 
+            while (nums[i] + nums[p1] + nums[p2] < 0 && p1<p2) {
+                p1++
+            }
+        }
+    }
+    return result;
+};
